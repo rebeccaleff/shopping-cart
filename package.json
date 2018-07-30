@@ -1,0 +1,40 @@
+{
+  "name": "fe-coding-challenge__shopping-cart",
+  "version": "1.0.0",
+  "description": "Shopping Cart take home coding challenge API server Rebecca Leff",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "build": "webpack --watch --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workmarket/fe-coding-challenge__shopping-cart.git"
+  },
+  "author": "Dave Krstin <dkrstin@workmarket.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/workmarket/fe-coding-challenge__shopping-cart/issues"
+  },
+  "homepage": "https://github.com/workmarket/fe-coding-challenge__shopping-cart#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "nodemon": "^1.18.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "path": "^0.12.7",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0"
+  }
+}
