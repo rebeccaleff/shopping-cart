@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom';
 
 class Items extends Component {
   constructor(props) {
@@ -10,15 +17,13 @@ class Items extends Component {
     this.addToCart = this.addToCart.bind(this);
   }
 
-  addToCart(key, click) {
-    console.log('inside add to cart');
-    console.log('key: ', key, 'click: ', click);
-    let copy = this.state.items.slice(0);
-    console.log('copy: ', copy);
-    // let selected = this.state.items.filter((item) => {
-    //   return item.id === this.state.items.id
-    // });
-    // this.setState({cart: item});
+  addToCart(index, click) {
+    let selected = this.state.items.filter((item, i) => {
+      return i === index
+    });
+    alert('Successfully added to cart!');
+    let copyCart = this.state.cart.slice(0);
+    this.setState({cart: copyCart.concat(selected)});
   }
 
   componentDidMount() {
@@ -27,7 +32,6 @@ class Items extends Component {
       return res.json()
     })
     .then((response) => {
-      console.log('response: ', response);
       this.setState({items: response});
     })
     .catch((err) => console.log(err));
@@ -41,29 +45,34 @@ class Items extends Component {
       textAlign: "center"
     }
 
+    // creates a new div for each item with required info
     let display = [];
       this.state.items.forEach((item, index) => {
         return display.push(
         <div id={index} style={padding}>
-          Title: {item.title}
+          <Link 
+            to={{
+            pathname: `/detail/${item.id}`,
+            state: { cart: this.state.cart, items: this.state.items, from: {index} }
+          }} >Title: {item.title}</Link>
           <br></br>
-          Price: {item.price} 
+          Price: ${item.price} 
           <br></br>
           <img src={item.thumbnail}/>
           <br></br>
           In Stock: {item.inStock.toString()}
           <br></br>
-          Quantity: 1 
+          Quantity: ? 
           <br></br>         
-          <button onClick={(e) => this.addToCart(item.id, e)}>Add to cart</button>
+          {/* I would usually include the item.id instead of the index, but there are duplicate ids */}
+          <button onClick={(e) => this.addToCart(index, e)}>Add to cart</button>
         </div>
         )
       });
 
-      console.log('show me the state: ', this.state);
     return (
       <div align="center">
-        <h1>All items:</h1> 
+        <h1>An overwhelming number of options:</h1> 
          {display}
       </div>
     )
