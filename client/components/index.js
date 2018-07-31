@@ -19,10 +19,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Items}/>
-          <Route path="/detail/:id" component={Detail}/>
-          <Route path="/cart" component={Cart}/>
-          <Route path="/checkout" component={Checkout}/>
+          <Route exact path="/" render={(props) => <Items {...props} />} />
+          <Route path="/detail/:id" render={(props) => <Detail {...props} />}/>
+          <Route path="/cart" render={(props) => <Cart {...props} />}/>
+          <Route path="/checkout" render={(props) => <Checkout {...props} />}/>
         </div>
       </Router>
     );

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const items = require('./items');
+const path = require('path');
 
 const app = express();
 
@@ -13,11 +14,6 @@ app.use(express.static(__dirname + './../dist'));
 
 app.get('/get-items', (req, res) => {
 	res.json(items);
-});
-
-app.get('/cart', (req, res) => {
-	// items in cart
-	res.send();
 });
 
 app.post('/checkout', (req, res) => {
@@ -40,5 +36,16 @@ app.post('/checkout', (req, res) => {
 });
 
 
+// to allow for refreshing the page without 'CANNOT GET /route' but not currently working. 
+// Network tab confirms receiving bundle file (via html script tag) but not appearing on screen. 
+// Thinking problem might be receiving file type
+
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, './../dist/index.html'), (err) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     }
+//   });
+// });
 
 app.listen(3001, () => console.log('Shopping Cart API app listening on port 3001!'));

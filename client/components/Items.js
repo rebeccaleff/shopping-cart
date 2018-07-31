@@ -70,9 +70,16 @@ class Items extends Component {
         )
       });
 
+      console.log('state: ', this.state);
+
     return (
       <div align="center">
         <h1>An overwhelming number of options:</h1> 
+        <Link 
+            to={{
+            pathname: '/cart',
+            state: { cart: this.state.cart, items: this.state.items }
+          }} >View Cart</Link>
          {display}
       </div>
     )
