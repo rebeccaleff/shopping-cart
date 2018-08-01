@@ -7,60 +7,56 @@ import {
   withRouter
 } from 'react-router-dom';
 
-const Detail = (props) => {
-  console.log('state: ', props.location.state);
+class Detail extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  let item = props.location.state.items.filter((el, idx) => {
-    if (idx === props.location.state.from.index) {
-      return el;
-    }
-  });
+  render() {
 
-  console.log('item: ', item);
+    let item = this.props.items.filter((el, idx) => {
+      if (idx === this.props.from.index) {
+        return el;
+      }
+    });
 
-  let pics = [];
-  item[0]["images"].forEach((pic, index) => {
-    pics.push(<img src={index} />)
-  });
-  // - Title
-  // - Price
-  // - Image(s)
-  // - In stock status (In stock/Out of stock)
-  // - Description
-  // - Quantity to purchase
-  // - “Add to Cart” button
-  // - Reviews (out of 5)
-  // console.log('pics: ', pics);
+      let reviews = [];
+      item[0]["reviews"].forEach((review) => {
+        reviews.push(['Rating: ', review.rating, 'Title: ', review.title, 'Author: ', review.author, 'Body: ', review.body, '   ']);
+      });
 
-  let reviews = [];
-  item[0]["reviews"].forEach((review) => {
-    reviews.push(['Rating: ', review.rating, 'Title: ', review.title, 'Author: ', review.author, 'Body: ', review.body, '   ']);
-  });
-
-  return (
-    <div>
+    return (
       <div>
-        Title: {item[0].title}
-        <br></br>
-        Price: ${item[0].price}
-        <br></br>
-        <img src={item[0]["images"][0]} ></img>
-        <img src={item[0]["images"][1]} ></img>
-        <br></br>
-        Description: {item[0].description}
-        <br></br>
         <div>
-          Reviews: {reviews}
+          Title: {item[0].title}
+          <br></br>
+          Price: ${item[0].price}
+          <br></br>
+          {/* tried pushing these tags into an array but they didn't display. Would optimize in the future */}
+          <img src={item[0]["images"][0]} ></img>
+          <img src={item[0]["images"][1]} ></img>
+          <br></br>
+          Description: {item[0].description}
+          <br></br>
+          <div>
+            Reviews: {reviews}
+          </div>
+          <br></br>
+          In Stock: {item[0].inStock.toString()}
+          <br></br>
+          {/* should depend on the in stock status */}
+          Quantity: 1
+          <br></br>
+          <button onClick={(click) => this.props.addToCart(this.props.from.index, click)}>Add to cart</button>  
+          <br></br>
+          <Link 
+                to={{
+                pathname: '/cart',
+              }} >View cart</Link>
         </div>
-        <button>Add to cart</button>  
-        <br></br>
-        <Link 
-              to={{
-              pathname: '/cart',
-            }} >View cart</Link>
-      </div>
-    </div>   
-  );
+      </div>   
+    );
+  }  
 }
 
 export default Detail;
