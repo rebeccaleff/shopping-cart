@@ -1,0 +1,14 @@
+.outer-item-grid {
+  width: 60%;
+  height: inherit;
+  background-color: wheat;
+  margin: auto;
+  overflow: auto;
+}
+
+.item-outer-div {
+  width: 100px;
+  height: 200px;
+  float: left;
+  background-color: ghostwhite;
+}

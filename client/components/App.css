@@ -1,0 +1,80 @@
+.nav-bar {
+  height: 100px;
+  background-color: grey;
+  margin: -8px -8px -8px -8px;
+}
+
+.nav-menu {
+  list-style-type: none;
+  background-color: navy;
+  height: 60px;
+  width: 150px;
+  float: right;
+  margin: 15px 15px 0px 0px;
+}
+
+.nav-buttons {
+ background-color: turquoise;
+ width: 50px;
+ float: right;
+ padding: 8px;
+ text-align: center;
+ margin: 10px 8px 0px 0px;
+}
+
+.project-name {
+  margin: 15px 0px 0px 15px;
+  float: left;
+  height: 46px;
+  width: 120px;
+  padding: 14px 0px 0px 14px;
+  background-color: beige;
+  font-size: 20px;
+}
+
+.views {
+  width:800px;
+  /* height: inherit; */
+  background-color: red;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.footer {
+  float: bottom;
+  height: 100px;
+  background-color: forestgreen;
+}
+
+.footer-menu {
+  list-style-type: none;
+  background-color: navy;
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.contact-links {
+  background-color: firebrick;
+
+  width: 200px;
+}
+
+@media only screen and (min-width: 550px) and (max-width: 830px) {
+  .views {
+    width: 535px;
+  }
+}
+
+@media only screen and (min-width: 355px) and (max-width: 549px) {
+  .views {
+    width: 265px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 354px) {
+  .project-name {
+    font-size: 14px;
+  }
+}
