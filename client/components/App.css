@@ -26,7 +26,7 @@
   margin: 15px 0px 0px 15px;
   float: left;
   height: 46px;
-  width: 120px;
+  width: 170px;
   padding: 14px 0px 0px 14px;
   background-color: beige;
   font-size: 20px;
@@ -52,12 +52,11 @@
   background-color: navy;
   display: flex;
   justify-content: center;
-  align-content: space-between;
+  align-content: space-around;
 }
 
 .contact-links {
   background-color: firebrick;
-
   width: 200px;
 }
 

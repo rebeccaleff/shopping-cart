@@ -57,7 +57,7 @@ class App extends Component {
       <Router>
         <div>
           <div className="nav-bar">
-            <div className="project-name">Project Name</div>
+            <div className="project-name">Shopping Cart API</div>
             <ul className="nav-menu">
               <li className="nav-buttons"> 
                 <Link to={{ pathname: '/' }}> Items</Link>
