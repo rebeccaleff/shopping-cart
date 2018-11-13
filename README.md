@@ -1,4 +1,4 @@
-# Coding Challenge: Shopping Cart
+# Shopping Cart
 
 ## Overview
 
